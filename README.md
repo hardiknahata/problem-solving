@@ -1,2 +1,2 @@
-# problem-solving-code-templates
-General patterns/templates for solving coding problems in Python
+# problem-solving
+General patterns/templates for data structures and algorithm coding problems
