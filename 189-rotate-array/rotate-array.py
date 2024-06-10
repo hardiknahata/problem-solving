@@ -3,10 +3,19 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        N = len(nums)
-        x = N*[0]
-        for i in range(N):
-            x[(i+k) % N] = nums[i]
+        # since k can be beyond N
+        k %= len(nums)
 
+        # reverse array
+        x = nums[::-1]
+
+        # reverse first k
+        y = x[:k][::-1]
+
+        # reverse remaining after kth
+        z = x[k:][::-1]
+
+        # join
+        x = y + z
         nums[:] = x
         
