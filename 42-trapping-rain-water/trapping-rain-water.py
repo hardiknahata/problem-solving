@@ -1,23 +1,21 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
         N = len(height)
-        prefix_sum = N*[-1]
-        suffix_sum = N*[-1]
-        trapped = N*[0]
+        left, right = 0, N-1
+        l_max,r_max = 0, 0
+        ans = 0
 
-        prefix_sum[0] = height[0]
-        suffix_sum[N-1] = height[N-1]
-
-        for i in range(1,N):
-            prefix_sum[i] = max(prefix_sum[i-1], height[i])
+        while left < right:
+            if height[left] < height[right]:
+                l_max = max(l_max, height[left])
+                ans += (l_max - height[left])
+                left += 1
+            else:
+                r_max = max(r_max, height[right])
+                ans += (r_max - height[right])
+                right -= 1
         
-        for i in range(N-2,-1,-1):
-            suffix_sum[i] = max(suffix_sum[i+1], height[i])
+        return ans
 
-        for i in range(N):
-            trapped[i] = min(prefix_sum[i], suffix_sum[i]) - height[i]
-        
-        return sum(trapped)
-
-# TC = 3*O(N)
-# SC = 2*O(N)       
+# TC = O(N)
+# SC = O(1)
