@@ -9,15 +9,13 @@ class Solution:
         if not root:
             return []
 
-        queue= collections.deque()
-        queue.append(root)
+        queue = deque([root])
+        res = []
         leftSide = True
-        res=[]
 
         while queue:
-            n = len(queue)
             levels = []
-            for i in range(n):
+            for _ in range(len(queue)):
                 node = queue.popleft()
                 levels.append(node.val)
 
@@ -26,12 +24,10 @@ class Solution:
                 if node.right:
                     queue.append(node.right)
 
-            if leftSide:
-                res.append(levels)
-            else:
-                res.append(levels[::-1])
-
+            # Append levels in the desired order
+            res.append(levels if leftSide else levels[::-1])
             leftSide = not leftSide
+
         return res
 
 
