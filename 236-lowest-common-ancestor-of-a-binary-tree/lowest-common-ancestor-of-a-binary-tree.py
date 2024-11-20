@@ -12,12 +12,11 @@ class Solution:
         if root == p or root == q or root == None:
             return root
         
+        # recursion
         l = self.lowestCommonAncestor(root.left, p, q)
         r = self.lowestCommonAncestor(root.right, p, q)
-
+        
         if l and r:
             return root
         else:
             return l or r
-        
-        
