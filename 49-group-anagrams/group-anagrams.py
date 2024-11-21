@@ -1,10 +1,15 @@
+from collections import Counter
+
+
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        mp = defaultdict(list)
-
+        anagrams = defaultdict(list)
         for word in strs:
-            sorted_word = "".join(sorted(word))
-            mp[sorted_word].append(word)
-        
-        return list(mp.values())
-               
+            pattern = sorted(list(word))
+            pattern_str = "".join(pattern)
+            anagrams[pattern_str].append(word)
+
+        ans = []
+        for groups in anagrams.values():
+            ans.append(groups)
+        return ans
