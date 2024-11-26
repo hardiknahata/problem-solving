@@ -7,3 +7,6 @@ class Solution:
             maxsum = max(maxsum, cur)  # Update the maximum subarray sum
 
         return maxsum  # Return the largest subarray sum
+
+# TC = O(n), single pass through the array to compute the maximum subarray sum
+# SC = O(1), constant space used for variables (cur, maxsum)
