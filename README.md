@@ -1,6 +1,4 @@
-Here’s a sample README.md for your LeetCode DSA solutions repository:
-
-# LeetCode DSA Solutions
+# Problem-Solving: LeetCode DSA Solutions
 
 Welcome to my repository of solutions for LeetCode problems! 🚀 This repository contains my implementations of various data structures and algorithms (DSA) problems from LeetCode. Each solution is crafted with an emphasis on clean code, optimal performance, and clarity.
 
